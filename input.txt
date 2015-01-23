@@ -1,4 +1,7 @@
-Firstname               Lastname                        Email                                 
+Firstname               Lastname                        Email
 Christian               Hagdorn                         hagdorn@gmail.com
 Pelle                   Pop                             pelle.pop@pellepop.pop
 Cajsa Stina             Svensson                        cajsa@stina.se
+Molly                   Sanden                          molly@danny.se
+Adam                    Alsing                          adam@alsing.com
+Jonny                   The Rocker                      jonny@uggal.se
