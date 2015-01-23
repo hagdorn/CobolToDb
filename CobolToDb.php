@@ -50,7 +50,7 @@ class CobolToDb {
 					$ps->execute($dbVariablesValuesArray);  //execute 
 				}
 			}
-			catch(Exception, $e){
+			catch(Exception $e){
 				//error code
 			}
 			
