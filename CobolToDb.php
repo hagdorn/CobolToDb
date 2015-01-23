@@ -36,19 +36,24 @@ class CobolToDb {
 					$dbVariablesQueryString .= ",:" . trim($this->importArray[0][$i]);
 				}
 			}
-			
-			$query = "INSERT INTO " .$dbName ." (" .$dbHeadersQueryString .") "; //query using variabels
-			$query .= "VALUES (" . $dbVariablesQueryString . ")";
-			
-			$ps = $db->prepare($query);  //Prepare statement
-			
-			for($r=1;$r<sizeof($this->importArray);$r++){ //Loop through entire importArray to set execute array
-				$dbVariablesValuesArray = [];
-				for($i=0;$i<sizeof($this->importArray[0]);$i++){
-					$dbVariablesValuesArray[trim($this->importArray[0][$i])] = $this->importArray[$r][$i]; //set execute array value with named key
+			try{
+				$query = "INSERT INTO " .$dbName ." (" .$dbHeadersQueryString .") "; //query using variabels
+				$query .= "VALUES (" . $dbVariablesQueryString . ")";
+
+				$ps = $db->prepare($query);  //Prepare statement
+
+				for($r=1;$r<sizeof($this->importArray);$r++){ //Loop through entire importArray to set execute array
+					$dbVariablesValuesArray = [];
+					for($i=0;$i<sizeof($this->importArray[0]);$i++){
+						$dbVariablesValuesArray[trim($this->importArray[0][$i])] = trim($this->importArray[$r][$i]); //set execute array value with named key
+					}
+					$ps->execute($dbVariablesValuesArray);  //execute 
 				}
-				$ps->execute($dbVariablesValuesArray);  //execute 
 			}
+			catch(Exception, $e){
+				//error code
+			}
+			
 		}
 	}
 	
