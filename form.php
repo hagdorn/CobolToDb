@@ -16,7 +16,7 @@ if( isset($_POST['upload']) ){
 		$cobolToDb = new CobolToDb;
 
 		$cobolToDb->openFile($fileName);
-		$cobolToDb->dbName = "coboltest";
+		$cobolToDb->dbName = "coboltest";	
 		$cobolToDb->readFile();
 		$cobolToDb->saveToDb($db, "coboltest");
 
